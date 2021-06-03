@@ -1,0 +1,98 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registration Form</title>
+    <style>
+      form {
+        text-align: center;
+      }
+    </style>
+    <script type="text/javascript">
+      function validation() {
+        if (
+          document.myform.fname.value == "" ||
+          !isNaN(document.myform.fname.value)
+        ) {
+          alert(
+            "Please provide your first name and make sure its in the right format"
+          );
+          document.myform.fname.focus();
+          return false;
+        }
+        if (
+          document.myform.lname.value == "" ||
+          !isNaN(document.myform.lname.value)
+        ) {
+          alert(
+            "Please provide your last name and make sure its in the right format"
+          );
+          document.myform.lname.focus();
+          return false;
+        }
+        if (
+          document.myform.age.value == "" ||
+          isNaN(document.myform.age.value)
+        ) {
+          alert("Please make sure age is filled and its in numbers");
+          document.myform.age.focus();
+          return false;
+        }
+        var emailid = document.myform.email.value;
+        posat = emailid.indexOf("@");
+        posdot = emailid.lastIndexOf(".");
+        if (posat < 1 || posdot - posat < 2) {
+          alert("invalid email");
+          document.myform.email.focus();
+          return false;
+        }
+        if (document.myform.password.value.length < 7) {
+          alert("invalid password");
+          document.myform.password.focus();
+          return false;
+        }
+      }
+    </script>
+
+  </head>
+  <body style="background-color: blue">
+    <form name="myform" onsubmit="return(validation())">
+      <p><u>Registration Form</u></p>
+      <p> <label>First Name:</label><input type="text" name="fname" /></p>
+      <p><label>Last Name:</label><input type="text" name="lname" /></p>
+      <p>
+        <label>Age: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label
+        ><input type="text" name="age" />
+      </p>
+      <p>
+        <label>E-mail:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label
+        ><input type="email" name="email" />
+      </p>
+      <p>
+        <label>Password:&nbsp&nbsp</label
+        ><input type="password" name="password" />
+      </p>
+      <p>
+        Sex: <input type="radio" name="gender" /><label>Male</label>
+        <input type="radio" name="gender" /><label>Female</label>
+      </p>
+      <p>
+        Checkbox: <input type="checkbox" name="pro" /><label
+          >Im a Student</label
+        >
+        <input type="checkbox" name="pro" /><label>Im a Business man</label>
+      </p>
+      <p>Birthday:</p>
+      <p>
+        Day:<input type="number" min="1" max="31" /> Month:<input
+          type="number"
+          min="1"
+          max="12"
+        />
+        Year:<input type="number" min="1900" max="2021" />
+      </p>
+      <p>Submit Button:<input type="submit" value""></p>
+      <p>Reset Button:&nbsp&nbsp;<input type="reset" /></p>
+    </form>
+  </body>
+</html>
